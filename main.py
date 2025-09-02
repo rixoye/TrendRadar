@@ -2679,8 +2679,8 @@ def send_to_wework(
             batch_header = f"**[第 {i}/{len(batches)} 批次]**\n\n"
             batch_content = batch_header + batch_content
 
-        payload = {"msgtype": "markdown", "markdown": {"content": batch_content}}
-
+        payload = {"msgtype": "markdown_v2", "markdown_v2": {"content": batch_content}}
+        print(batch_content)
         try:
             response = requests.post(
                 webhook_url, headers=headers, json=payload, proxies=proxies, timeout=30
